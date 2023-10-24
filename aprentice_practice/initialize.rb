@@ -1,20 +1,23 @@
 class VendingMachine
 
-def initialize(name)
+def initialize(name, deposit)
   @name = name
+  @deposit = deposit
 end
 
-def press_button
-  if money => 100 then 
-    puts "cider"
+
+def deposit_coin(deposit)
+  if deposit >= 100
+    deposit += 100
   end
 end
 
-def deposit_coin(money)
-  money += 100
+def press_button
+  if @deposit >=100
+  puts "cider"
+  end
 end
 
-private :press_manufacturer_name
 
 def press_manufacturer_name
   puts "#{@name}"
@@ -22,7 +25,7 @@ end
 
 end
 
-vending_machine = VendingMachine.new('サントリー')
+vending_machine = VendingMachine.new('サントリー',100)
 puts vending_machine.press_button
 
 vending_machine.deposit_coin(150)
