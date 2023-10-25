@@ -1,23 +1,38 @@
-class Vending_Machine 
-  #投入金額
-  #ボタンを押したときの挙動
-  #コーラとサイダーがある
-  #
-  def initialize(deposit,name)#投入額、ボタンインスタンスを生成
+class VendingMachine
+  
+  def initialize(deposit)
     @deposit = deposit
-    @name = name
   end
 
-  def deposit_coin(deposit)#投入額
-     if @deposit == 100
-      puts "#{@cider}"
-      @deposit -= 100
-     else
-      puts
-     end
-     
+  def press_button(cola)
+    if @deposit == 150
+    puts cola
+    @deposit = @deposit - 150
+    else
+      puts " "
+    end
   end
-class Item #飲み物の種類と値段
-  #コーラ 150円
-  #サイダー 100円
 
+  def deposit_coin(deposit)
+    if deposit >= 100
+      @deposit = @deposit + 100
+    end
+    if deposit >= 150
+      @deposit = @deposit + 150
+    end
+  end
+end
+
+class Item# アイテムに関するクラスを作成してください
+
+  def initialize(itemname)
+    @itemname = itemname
+  end
+end
+
+cola = Item.new(cola)
+vending_machine = VendingMachine.new('サントリー')
+vending_machine.deposit_coin(100)
+puts vending_machine.press_button(cola)
+vending_machine.deposit_coin(100)
+puts vending_machine.press_button(cola)
